@@ -1,71 +1,38 @@
 ---
-import BaseLayout from '@/layouts/BaseLayout.astro'
-import { buttonVariants, Button } from '@/components/ui/button'
-import { CldUploadWidget, CldImage } from 'astro-cloudinary'
-import { ImageUp } from 'lucide-react'
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/sections/Hero.astro';
+import Resume from '../components/sections/Resume.astro';
+import { CldImage} from "astro-cloudinary";
+import {getCollection, getEntries} from 'astro:content'
+
+const folder = Astro.url.searchParams.get('folder')
+const images = await getCollection('images')
+// console.log(images)
 ---
 
-<BaseLayout
-  title="Spookifier"
-  description="Transform one picture of a person into its spooky version."
->
-  <section class="container grid items-center gap-6 pb-8 pt-6 md:py-10">
-    <div class="flex max-w-[980px] flex-col items-start gap-2">
-      <h1
-        class="text-3xl font-extrabold leading-tight tracking-tighter md:text-4xl"
-      >
-        Spookifier <br class="hidden sm:inline" />
-      </h1>
-      <p class="max-w-[700px] text-lg text-muted-foreground">
-        Transform a person's photo into one that will take your breath away
+<Layout title="Spookifier">
+	<Hero />
+	<!-- <Resume /> -->
 
-        <div class="flex gap-4"></div>
-        <CldUploadWidget
-          id="upload-widget"
-          uploadPreset="spookifier-upload-unsigned"
-          options={{
-            sources: ['local'],
-            multiple: false,
-            maxFiles: 1,
-            language: 'en',
-            text: {
-              es: {
-                or: 'Or',
-
-                menu: {
-                  files: 'Upload from your device',
-                },
-                local: {
-                  browse: 'Select...',
-                  dd_title_single: 'Drag your image here',
-                },
-              },
-            },
-          }}
-        >
-          <Button> <ImageUp />Upload photo</Button>
-        </CldUploadWidget>
-        <a
-          href="https://github.com/ErlantzCalvo/spookifier"
-          target="_blank"
-          rel="noreferrer"
-          class={buttonVariants({ variant: 'outline' })}
-        >
-          GitHub
-        </a>
-      </p>
-    </div>
-  </section>
-
-  <script>
-    const widget = document.querySelector('#upload-widget')
-
-    if (widget) {
-      widget.addEventListener('clduploadwidget:success', ((
-        e: CustomEvent<{ detail: object }>,
-      ) => {
-        console.log('clduploadwidget:success', e.detail)
-      }) as EventListener)
-    }
-  </script></BaseLayout
->
+	<!-- <ul>
+		{
+			images.map((image) => {
+			  return (
+				<li>
+				  <a>
+					<CldImage
+					  src={image.data.public_id}
+					  width={250}
+					  height={250}
+					  crop={{
+						type: "fill",
+						source: true,
+					  }}
+					/>
+				  </a>
+				</li>
+			  )
+			})
+		  }
+	</ul> -->
+</Layout>
