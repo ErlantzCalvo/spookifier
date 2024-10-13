@@ -1,43 +1,36 @@
-# Astro Resume Theme
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-Astro Resume Theme is a customizable and responsive template designed to help you create a beautiful online resume or portfolio quickly. Built with Astro and styled using Tailwind CSS
+## Getting Started
 
-## Usage
-
-You can bootstrap a new Astro project using the following command:
+First, run the development server:
 
 ```bash
-# Bun
-bun create astro@latest --template wasutz/astro-resume-theme
-
-# npm 7+
-npm create astro@latest -- --template wasutz/astro-resume-theme
-
-# pnpm
-pnpm dlx create-astro --template wasutz/astro-resume-theme
-
-# yarn
-yarn create astro --template wasutz/astro-resume-theme
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-## 🚀 Features
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-- Tailwind CSS for styling
-- Themeable (defined in `src/styles/theme.css`)
-- Dark mode
-- Responsive
-- Support MDX blog post
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## 🧞 Commands
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-All commands are run from the root of the project, from a terminal:
-(Could be use 'npm' instead of bun)
+## Learn More
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `bun install`             | Installs dependencies                            |
-| `bun run dev`             | Starts local dev server at `localhost:4321`      |
-| `bun run build`           | Build your production site to `./dist/`          |
-| `bun run preview`         | Preview your build locally, before deploying     |
-| `bun run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun run astro -- --help` | Get help using the Astro CLI                     |
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
