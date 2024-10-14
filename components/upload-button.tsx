@@ -1,15 +1,24 @@
 "use client"
+import { getUserUid } from "@/lib/utils";
 import { CldUploadWidget } from "next-cloudinary";
+
+// import { name } from "@cloudinary/url-gen/actions/namedTransformation";
+
+// new CloudinaryImage("jmtai3zmuwbougwvvkfo.jpg").namedTransformation(
+//   name("person-spookified")
+// );
 type UploadButtonProps = {
     onSuccess: Function
 }
 export default function UploadButton(props: UploadButtonProps) {
+    const uid = getUserUid()
+
     return <CldUploadWidget
         onSuccess={(result) => props.onSuccess(result)}
         uploadPreset="spookifier-upload-unsigned"
         options={{
             sources: ["local", "camera"],
-            // folder: "123456",
+            folder: uid,
 
             multiple: false,
             maxFiles: 1,

@@ -3,17 +3,24 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import UploadButton from "@/components/upload-button";
 import { v4 as uuidv4 } from 'uuid';
+import {useRouter} from 'next/navigation'
+
 
 export default function Home() {
-  const [resource, setResource] = useState();
+  const [isTuElementReady, setTuElementReady] = useState<boolean>(false);
+  const router = useRouter()
+
   useEffect(() => {
-    import("two-up-element")
+    const isTwoUpElementImported = import("two-up-element")
+    isTwoUpElementImported.then(() => setTuElementReady(true))
     const uid = localStorage.getItem('uid')
     if(!uid) localStorage.setItem('uid', uuidv4())
   })
   const handleWidgetUpload = function(result: any) {
-    setResource(result?.info);  // { public_id, secure_url, etc }
-    console.log(result?.info)
+    if(result.info) {
+      console.log(result?.info)
+      router.push('/photos/' + result?.info.public_id)
+    }
   }
   return (
       <main>
@@ -37,10 +44,12 @@ export default function Home() {
                 </div>
               </div>
               <div className="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center">
-                 <two-up>
-                  <img src="https://res.cloudinary.com/ds4qpjtfq/image/upload/v1728820930/pvkj2xcykyljcqex4pzx.jpg"></img>
-                  <img src="https://res.cloudinary.com/ds4qpjtfq/image/upload/v1728643335/y9x4pd5m1xigeqyp0il9.jpg"></img>
-                </two-up>
+                {isTuElementReady &&<two-up>
+                  <Image src="https://res.cloudinary.com/ds4qpjtfq/image/upload/v1728920459/template_primary_sa3nyv.avif" 
+                  alt="normal person" width={800} height={400}></Image>
+                  <Image src="https://res.cloudinary.com/ds4qpjtfq/image/upload/v1728920459/template_primary_1_ux2vur.avif" 
+                  alt="normal person" width={800} height={400}></Image>
+                </two-up>}
               </div>
             </div>
           </div>

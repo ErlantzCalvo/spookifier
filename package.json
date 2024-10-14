@@ -1,14 +1,16 @@
 {
-  "name": "spookifier2",
+  "name": "spookifier",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev ",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/uuid": "^10.0.0",
+    "cloudinary": "^2.5.1",
     "next": "14.2.15",
     "next-cloudinary": "^6.14.1",
     "react": "^18",
