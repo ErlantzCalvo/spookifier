@@ -44,10 +44,16 @@ function Header() {
         </Link>
         <div className="flex items-center space-x-4">
           <Link
-            href="/about"
-            className="text-sm font-medium text-gray-700 hover:text-gray-900"
+            href="/photos"
+            className="text-lg font-medium text-orange-500 hover:text-orange-300 font-[family-name:var(--font-creepster)]"
           >
-            About
+            Your photos
+          </Link>
+          <Link
+            href="/share"
+            className="text-lg font-medium text-orange-500 hover:text-orange-300 font-[family-name:var(--font-creepster)]"
+          >
+            share
           </Link>
           
         </div>
