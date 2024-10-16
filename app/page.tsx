@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import UploadButton from "@/components/upload-button";
 import { v4 as uuidv4 } from 'uuid';
 import {useRouter} from 'next/navigation'
+import ImageLoadSkeleton from "@/components/image-load-skeleton";
 
 
 export default function Home() {
@@ -50,6 +51,7 @@ export default function Home() {
                   <Image src="https://res.cloudinary.com/ds4qpjtfq/image/upload/v1728920459/template_primary_1_ux2vur.avif" 
                   alt="normal person" width={800} height={400}></Image>
                 </two-up>}
+                {!isTuElementReady && <ImageLoadSkeleton width={600} height={300}/>}
               </div>
             </div>
           </div>
