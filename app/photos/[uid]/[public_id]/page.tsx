@@ -2,7 +2,7 @@
 import ImageLoadSkeleton from '@/components/image-load-skeleton';
 import { downloadAsset } from '@/lib/utils';
 import {CldImage, getCldImageUrl } from 'next-cloudinary'
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 export default function Photo({ params }: { params: { uid: string, public_id: string } }) {
   const originalImagePath = `${params.uid}/${params.public_id}`
   const [isLoadingImage, setLoadingImage] = useState<boolean>(false)
