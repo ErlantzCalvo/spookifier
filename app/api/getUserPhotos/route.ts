@@ -14,8 +14,7 @@ export async function GET(request: Request) {
     })
 
     const userImages = await cloudinaryApi.search
-    // .expression(`resource_type:image AND asset_folder:spookifier AND public_id:${uid}/*`)
-    .expression(`resource_type:image `)
+    .expression(`resource_type:image AND asset_folder:spookifier AND public_id:${uid}/*`)
     .sort_by('public_id','desc')
     .max_results(300)
     .execute()

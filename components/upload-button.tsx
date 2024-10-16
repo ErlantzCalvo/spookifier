@@ -19,7 +19,6 @@ export default function UploadButton(props: UploadButtonProps) {
         options={{
             sources: ["local", "camera"],
             folder: uid,
-
             multiple: false,
             maxFiles: 1,
             language: "en",

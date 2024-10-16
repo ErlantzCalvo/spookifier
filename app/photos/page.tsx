@@ -41,10 +41,10 @@ export default function Photos() {
 function skeletonGrid() {
     return (
         <div className="p-4 grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-2">
-            <ImageLoadSkeleton />
-            <ImageLoadSkeleton />
-            <ImageLoadSkeleton />
-            <ImageLoadSkeleton />
+            <ImageLoadSkeleton height={200}/>
+            <ImageLoadSkeleton height={200}/>
+            <ImageLoadSkeleton height={200}/>
+            <ImageLoadSkeleton height={200}/>
         </div>
     )
 }
