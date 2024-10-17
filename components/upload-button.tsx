@@ -2,13 +2,8 @@
 import { getUserUid } from "@/lib/utils";
 import { CldUploadWidget } from "next-cloudinary";
 
-// import { name } from "@cloudinary/url-gen/actions/namedTransformation";
-
-// new CloudinaryImage("jmtai3zmuwbougwvvkfo.jpg").namedTransformation(
-//   name("person-spookified")
-// );
 type UploadButtonProps = {
-    onSuccess: Function
+    onSuccess: (arg: any) => void
 }
 export default function UploadButton(props: UploadButtonProps) {
     const uid = getUserUid()

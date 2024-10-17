@@ -33,7 +33,7 @@ export default function Home() {
                 Unleash terror
                 </h1>
                 <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
-                Turn a person's photo into its most terrifying and
+                Turn a person&apos;s photo into its most terrifying and
                     spine-chilling version!
 
                 </p>

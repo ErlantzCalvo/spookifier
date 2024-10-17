@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import * as loadingContent from '@/app/assets/loadingContent.json'
+import loadingContent from '@/app/assets/loadingContent.json'
 import Image from "next/image"
 
 export default function SpookyLoader() {

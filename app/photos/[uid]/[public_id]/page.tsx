@@ -3,7 +3,15 @@ import ImageLoadSkeleton from '@/components/image-load-skeleton';
 import SpookyLoader from '@/components/spooky-loader';
 import { downloadAsset } from '@/lib/utils';
 import {CldImage, getCldImageUrl } from 'next-cloudinary'
-import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import { useState } from 'react';
+
+interface ButtonsPaneProps {
+  isLoading: boolean, 
+  onSpookify: () => void, 
+  onDownloadClick: () => void
+}
+
 export default function Photo({ params }: { params: { uid: string, public_id: string } }) {
   const originalImagePath = `${params.uid}/${params.public_id}`
   const [isLoadingImage, setLoadingImage] = useState<boolean>(false)
@@ -96,7 +104,7 @@ export default function Photo({ params }: { params: { uid: string, public_id: st
     </div>);
   }
 
-  function ButtonsPane(params: {isLoading: boolean, onSpookify: Function, onDownloadClick: Function}) {
+  function ButtonsPane(params: ButtonsPaneProps) {
     return (
       <div className='text-start'>
         <button
@@ -108,7 +116,7 @@ export default function Photo({ params }: { params: { uid: string, public_id: st
         <button
           className='bg-orange-600 hover:bg-orange-800 
       rounded-lg px-5 py-2.5  float-end'  title='Download image'>
-          <img src='/download.svg' width={20} onClick={() => params.onDownloadClick()}></img>
+          <Image src='/download.svg' width={20} height={20} onClick={() => params.onDownloadClick()} alt='Download image'/>
       </button>
     </div>
     )

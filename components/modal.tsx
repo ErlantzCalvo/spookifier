@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-export default function Modal({ openModal, closeModal, children }: {openModal: boolean, closeModal: Function, children: React.ReactNode}) {
+export default function Modal({ openModal, children }: {openModal: boolean, children: React.ReactNode}) {
   const ref = useRef<any>();
   useEffect(() => {
     if (openModal) {

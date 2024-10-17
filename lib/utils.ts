@@ -24,15 +24,17 @@ export function getUserCode() {
     if(typeof window !== "undefined"){
       const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
       const uid = getUserUid()
-      const randomChar = characters.charAt(Math.floor(Math.random() * characters.length));
-      const b64uid = Buffer.from(uid!).toString('base64')
-      return randomChar + b64uid
+      if(uid && isValidUid(uid)) {
+        const randomChar = characters.charAt(Math.floor(Math.random() * characters.length));
+        const b64uid = Buffer.from(uid).toString('base64')
+        return randomChar + b64uid
+      }
     }
 }
 
 export async function downloadAsset(assetUrl: string) {
     const download = (filename: string, content: string) => {
-        var element = document.createElement("a");
+        const element = document.createElement("a");
         element.setAttribute("href", content);
         element.setAttribute("download", filename);
         element.style.display = "none";
