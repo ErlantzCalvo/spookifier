@@ -1,17 +1,18 @@
 'use client'
 import ImageLoadSkeleton from '@/components/image-load-skeleton';
+import SpookyLoader from '@/components/spooky-loader';
 import { downloadAsset } from '@/lib/utils';
 import {CldImage, getCldImageUrl } from 'next-cloudinary'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 export default function Photo({ params }: { params: { uid: string, public_id: string } }) {
   const originalImagePath = `${params.uid}/${params.public_id}`
   const [isLoadingImage, setLoadingImage] = useState<boolean>(false)
-  const [selectedImage, setSelectedImage] = useState<string>(originalImagePath)
-  const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0)
+  const [error, setError] = useState<any>(null)
+  const [selectedImage, setSelectedImage] = useState<{url: string, index: number}>({url: originalImagePath, index: 0})
   const [generatedImages, setGeneratedImages] = useState<string[]>([originalImagePath])
 
-  function spookifyImage() {
-    console.log('is loading')
+  async function spookifyImage() {
+    setError(null)
     setLoadingImage(true)
     const url = getCldImageUrl({
       src: originalImagePath, 
@@ -23,26 +24,28 @@ export default function Photo({ params }: { params: { uid: string, public_id: st
       },
       simulateColorblind: 'tritanomaly',
     })
-    waitLoadingImage(url)
-    let currIndex = selectedImageIndex
-    setSelectedImage(url)
-    if(!generatedImages.some(imUrl => url === imUrl)) {
-      setGeneratedImages([...generatedImages, url])
-      currIndex++
+    try {
+      const res = await waitLoadingImage(url)
+      if(res.status !== 200) throw new Error(res.statusText)
+      let currIndex = generatedImages.length
+      if(!generatedImages.some(imUrl => url === imUrl)) {
+        setGeneratedImages([...generatedImages, url])
+        currIndex++
+      }
+      setSelectedImage({url, index: currIndex})
+    } catch (error) {
+        setError(error)
+    } finally {
+      setLoadingImage(false)
     }
-    setSelectedImageIndex(currIndex)
   }
 
-  function waitLoadingImage(url: string) {
-    fetch(url).then(res => {
-      console.log('is NOT loading')
-      setLoadingImage(false)
-    })
+  async function waitLoadingImage(url: string) {
+    return fetch(url)
   }
 
   function handleGeneratedImageClick(index: number) {
-    setSelectedImageIndex(index)
-    setSelectedImage(generatedImages[index])
+    setSelectedImage({url: generatedImages[index], index})
   }
 
   
@@ -55,44 +58,53 @@ export default function Photo({ params }: { params: { uid: string, public_id: st
             <div 
             key={"generatedImage__" + idx}
             id={"generatedImage__" + idx}
-            className={'hover:bg-slate-800 mb-2 ' + (idx === selectedImageIndex ? "bg-orange-950": "")}
+            className={'hover:bg-slate-800 mb-2 ' + (idx === selectedImage.index ? "bg-orange-950": "")}
             >
-              {isLoadingImage && idx === selectedImageIndex && <ImageLoadSkeleton height={100}/>}
-              {(!isLoadingImage || idx !== selectedImageIndex) && <CldImage 
+              {(!isLoadingImage || idx !== selectedImage.index) && <CldImage 
                 alt={'generated image ' + idx}
                 src={imageUrl}
                 width={200}
                 height={100}
-                className={' m-auto rounded-lg cursor-pointer ' + (idx === selectedImageIndex ? "w-full": "w-9/12")}
+                className={' m-auto rounded-lg cursor-pointer ' + (idx === selectedImage.index ? "w-full": "w-9/12")}
                 preserveTransformations
                 onClick={() => handleGeneratedImageClick(idx)}
-              />}
+                />}
             </div>
           ))
         }
+        {isLoadingImage && <ImageLoadSkeleton width={200} height={100}/>}
       </div>
-      <div className='flex flex-col'>
-     <ButtonsPane onSpookify={spookifyImage} onDownloadClick={() => handleDownloadClick(selectedImage)}/>
-      {isLoadingImage && <ImageLoadSkeleton height={400}/>}
+      <div className='flex flex-col w-full'>
+        
+     <ButtonsPane isLoading={isLoadingImage} onSpookify={spookifyImage} onDownloadClick={() => handleDownloadClick(selectedImage.url)}/>
+      {isLoadingImage && <SpookyLoader />}
       {!isLoadingImage && <CldImage 
         alt='original image'
-        src={selectedImage}
+        src={selectedImage.url}
         width={800}
         height={400}
         className='mt-5 rounded-lg'
         preserveTransformations
         />}
+      {error && 
+      <div>
+        <h1 className='text-red-600 text-xl'>Error spookifying image</h1>
+        <h2 className='text-red-600'>Please check that the given image corresponds to a person</h2>
+      </div>
+      }
       </div>
     </div>);
   }
 
-  function ButtonsPane(params: {onSpookify: Function, onDownloadClick: Function}) {
+  function ButtonsPane(params: {isLoading: boolean, onSpookify: Function, onDownloadClick: Function}) {
     return (
       <div className='text-start'>
         <button
           className='bg-orange-600 hover:bg-orange-800  
       rounded-lg px-5 py-2.5 font-[family-name:var(--font-creepster)]
-      text-white text-xl tracking-wide' onClick={() => params.onSpookify()}>Spookify!</button>
+      text-white text-xl tracking-wide' onClick={() => params.onSpookify()}
+      disabled={params.isLoading}
+      >Spookify!</button>
         <button
           className='bg-orange-600 hover:bg-orange-800 
       rounded-lg px-5 py-2.5  float-end'  title='Download image'>

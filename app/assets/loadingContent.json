@@ -1,0 +1,57 @@
+[
+    {
+        "text": "Awakening Dracula (he's not a morning person)...",
+        "folder": "vampire",
+        "filesNumber": 2
+    },
+    {
+        "text": "Sharpening fangs...",
+        "folder": "vampire",
+        "filesNumber": 2
+    },
+    {
+        "text": "Summoning monsters...",
+        "folder": "zombie",
+        "filesNumber": 2
+    },
+    {
+        "text": "Hiring zombies for the photoshoot...",
+        "folder": "vampire",
+        "filesNumber": 2
+    },
+    {
+        "text": "Rattling some old bones...",
+        "folder": "skeleton",
+        "filesNumber": 2
+    },
+    {
+        "text": "Raising the undead... they're slow but steady!",
+        "folder": "zombie",
+        "filesNumber": 2
+    },
+    {
+        "text": "Conjuring darkness...",
+        "folder": "pumpkin",
+        "filesNumber": 1
+    },
+    {
+        "text": "Tiptoeing through the crypt... shhh!",
+        "folder": "ghost",
+        "filesNumber": 1
+    },
+    {
+        "text": "Casting a spooky spell...",
+        "folder": "clown",
+        "filesNumber": 1
+    },
+    {
+        "text": "Training spiders...",
+        "folder": "spider",
+        "filesNumber": 1
+    },
+    {
+        "text": "Counting spider legs... just to be sure!",
+        "folder": "clown",
+        "filesNumber": 1
+    }
+]
