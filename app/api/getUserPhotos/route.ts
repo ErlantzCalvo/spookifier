@@ -1,4 +1,5 @@
 import {v2 as cloudinaryApi} from 'cloudinary'
+import { NextResponse } from 'next/server'
 
 export async function GET(request: Request) {
     const {searchParams} = new URL(request.url)
@@ -20,5 +21,6 @@ export async function GET(request: Request) {
     .execute()
     
 
-    return Response.json({data: userImages})
+    return NextResponse.json({data: userImages})
+    // return Response.json({data: userImages})
 }
