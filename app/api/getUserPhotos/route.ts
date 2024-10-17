@@ -22,5 +22,4 @@ export async function GET(request: Request) {
     
 
     return NextResponse.json({data: userImages})
-    // return Response.json({data: userImages})
 }
