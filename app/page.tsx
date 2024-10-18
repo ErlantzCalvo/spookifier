@@ -5,6 +5,7 @@ import UploadButton from "@/components/upload-button";
 import { v4 as uuidv4 } from 'uuid';
 import {useRouter} from 'next/navigation'
 import ImageLoadSkeleton from "@/components/image-load-skeleton";
+import Testimonials from "@/components/testimonials";
 
 
 export default function Home() {
@@ -32,7 +33,7 @@ export default function Home() {
                 <h1 className="text-4xl font-bold text-orange-600 tracking-tight sm:text-5xl md:text-6xl font-[family-name:var(--font-creepster)]">
                 Unleash terror
                 </h1>
-                <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
+                <p className="mt-3 text-base text-gray-300 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
                 Turn a person&apos;s photo into its most terrifying and
                     spine-chilling version!
 
@@ -40,7 +41,7 @@ export default function Home() {
                 <div className="w-fit mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0">
                 <div className="flex flex-col items-center">
                   <UploadButton onSuccess={handleWidgetUpload}/>
-                  <p className="text-gray-400 font-[family-name:var(--font-october-crow)]">Only if you dare</p>
+                  <p className="text-gray-300 font-[family-name:var(--font-october-crow)]">Only if you dare</p>
                   </div>
                 </div>
               </div>
@@ -58,7 +59,8 @@ export default function Home() {
         </section>
   
         <section className="py-16 bg-white w-full">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Testimonials />
+          {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="lg:grid lg:grid-cols-3 lg:gap-8">
               <div>
                 <div className="flex items-center justify-center h-12 w-12 rounded-md bg-orange-500 text-white">
@@ -82,7 +84,6 @@ export default function Home() {
   
               <div className="mt-10 lg:mt-0">
                 <div className="flex items-center justify-center h-12 w-12 rounded-md bg-orange-500 text-white">
-                  {/* <Database className="h-6 w-6" /> */}
                 </div>
                 <div className="mt-5">
                   <h2 className="text-lg font-medium text-gray-900">
@@ -109,7 +110,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </section>
       </main>
   
