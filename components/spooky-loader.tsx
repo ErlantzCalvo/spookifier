@@ -17,7 +17,7 @@ export default function SpookyLoader() {
       return () => {clearInterval(interval)}
     }, [])
 
-    return <div className='text-orange-600 flex py-14 text-2xl justify-center align-middle font-[family-name:var(--font-creepster)] tracking-wide'>
+    return <div className='text-orange-600 flex py-14 text-2xl justify-center align-middle items-center font-[family-name:var(--font-creepster)] tracking-wide'>
         <SpookyLoaderContent content={loaderContent} />
     </div>
   }
