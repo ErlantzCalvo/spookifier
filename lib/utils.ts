@@ -13,7 +13,8 @@ export function getUserUid() {
 }
 
 export function setUserUid(uid: string) {
-    localStorage.setItem('uid', uid)
+    if(typeof window !== "undefined")
+      localStorage.setItem('uid', uid)
 }
 
 export function isValidUid(uid: string): boolean {
