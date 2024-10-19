@@ -73,5 +73,5 @@ function TwoUpWrapper() {
         alt="normal person" width={800} height={400}></Image>
       </two-up>
     </div>
-  );
-};
+  )
+}
