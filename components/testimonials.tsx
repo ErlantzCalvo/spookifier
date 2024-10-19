@@ -5,7 +5,7 @@ export default function Testimonials() {
     return (
         <div className="responsive-container-block big-container">
   <div className="responsive-container-block bg">
-    <p className="text-blk title">
+    <p className="text-blk title font-[family-name:var(--font-creepster)]">
       Testimonials
     </p>
     <p className="text-blk desc">
@@ -13,11 +13,11 @@ export default function Testimonials() {
     </p>
     <div className="responsive-container-block blocks">
       <div className="responsive-cell-block wk-desk-1 wk-tab-1 wk-mobile-1 wk-ipadp-1 content">
-        <p className="text-blk info-block">
+        <p className="text-blk info-block ">
             It is the most fun product I have ever used. Not having bought it when I had the chance is the thing I regret the most in this life</p>
         <div className="responsive-container-block person">
           <div className="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12 icon-block">
-            <Image className="profile-img" width={50} height={50} alt="" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/eourInstructors1.svg" />
+            <Image className="profile-img" width={50} height={50} alt="" src="/testimonials/Moondar-pimatcha.jpg" />
           </div>
           <div className="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12 text-block">
             <p className="text-blk name">
@@ -37,7 +37,7 @@ export default function Testimonials() {
         </p>
         <div className="responsive-container-block person">
           <div className="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12 icon-block">
-            <Image className="profile-img" width={50} height={50} alt="" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/eourInstructors1.svg" />
+            <Image className="profile-img" width={50} height={50} alt="" src="/testimonials/Zurk-muckerberg.jpg" />
           </div>
           <div className="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12 text-block">
             <p className="text-blk name">
@@ -49,7 +49,7 @@ export default function Testimonials() {
           </div>
         </div>
       </div>
-      <div className="responsive-cell-block wk-desk-1 wk-tab-1 wk-mobile-1 wk-ipadp-1 content bottom">
+      <div className="responsive-cell-block  wk-desk-1 wk-tab-1 wk-mobile-1 wk-ipadp-1 content bottom">
         <p className="text-blk info-block">
         After the trauma of my divorce, Spookifing images of my ex-wife was the only reason that kept me going.
         <br /><br />

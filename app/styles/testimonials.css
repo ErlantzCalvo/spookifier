@@ -51,7 +51,7 @@
     width: 100%;
     height: auto;
     text-align: center;
-    font-size: 36px;
+    font-size: 52px;
     line-height: 45px;
     font-weight: 900;
     margin-top: 0px;
@@ -87,7 +87,7 @@
   .responsive-cell-block.wk-desk-1.wk-tab-1.wk-mobile-1.wk-ipadp-1.content {
     width: 30%;
     height: auto;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 20px 7px;
+    box-shadow: rgba(184, 87, 22, 0.76) 0px 4px 20px 7px;
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
     border-bottom-right-radius: 16px;

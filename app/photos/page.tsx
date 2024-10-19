@@ -20,7 +20,7 @@ export default function Photos() {
         fetchData()
     }, [])
 
-    if(!isLoading && imagesUrls.length === 0) return <div className="text-slate-300">There are not photos</div>
+    if(!isLoading && imagesUrls.length === 0) return <EmptyPage />
     if(isLoading) return skeletonGrid()
     return (
         <div className="p-12 grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -35,6 +35,14 @@ export default function Photos() {
                 </Link>
             ))}
         </div>
+    )
+}
+
+function EmptyPage() {
+    return (
+    <div className="h-screen w-full text-2xl text-center pt-11 font-[family-name:var(--font-creepster)]">
+        <div className="text-slate-300">🎃 Beware! This album is as empty as a grave on Halloween night. 👻</div>
+    </div>
     )
 }
 
