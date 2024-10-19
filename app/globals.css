@@ -29,7 +29,7 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem
+    --radius: 0.5rem;
   }
 
   .dark {
@@ -70,3 +70,18 @@
   }
 }
 
+.my-two-up > * {
+  /* Color of the track & thumb */
+  --accent-colour: #777;
+  /* Or you can set the two independently: */
+  --track-color: #ff9100;
+  --thumb-color: #fff8f8;
+  /* Background of the thumb */
+  --thumb-background: #ff9100;
+  /* Size of the thumb */
+  --thumb-size: 42px;
+  /* Thickness of the bar */
+  --bar-size: 3px !important;
+  /* Touch-thickness of the bar */
+  --bar-touch-size: 60px;
+}
