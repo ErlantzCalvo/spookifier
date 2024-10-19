@@ -57,7 +57,7 @@ export default function Testimonials() {
         </p>
         <div className="responsive-container-block person">
           <div className="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12 icon-block">
-            <Image className="profile-img" width={50} height={50} alt="" src="/testimonials/Bez-jeffos.jpg" />
+            <Image className="profile-img" width={50} height={50} alt="" src="/testimonials/Bez-Jeffos.jpg" />
           </div>
           <div className="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12 text-block">
             <p className="text-blk name">
