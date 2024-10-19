@@ -5,6 +5,7 @@ import { downloadAsset } from '@/lib/utils';
 import {CldImage, getCldImageUrl } from 'next-cloudinary'
 import Image from 'next/image';
 import { useState } from 'react';
+import availableTransformations from "@/app/assets/availableTransformations.json"
 
 interface ButtonsPaneProps {
   isLoading: boolean, 
@@ -15,6 +16,7 @@ interface ButtonsPaneProps {
 export default function Photo({ params }: { params: { uid: string, public_id: string } }) {
   const originalImagePath = `${params.uid}/${params.public_id}`
   const [isLoadingImage, setLoadingImage] = useState<boolean>(false)
+  const [usedTransformations, setUsedTransformations] = useState<number[]>([])
   const [error, setError] = useState<any>(null)
   const [selectedImage, setSelectedImage] = useState<{url: string, index: number}>({url: originalImagePath, index: 0})
   const [generatedImages, setGeneratedImages] = useState<string[]>([originalImagePath])
@@ -22,19 +24,19 @@ export default function Photo({ params }: { params: { uid: string, public_id: st
   async function spookifyImage() {
     setError(null)
     setLoadingImage(true)
+    const [transformToApply, transformationIndex] = getNamedTransformation(usedTransformations)
+    if(transformationIndex === -1) {
+      setError("No more transformations available for this image. Available transformations for the same image are " + availableTransformations.length)
+      return
+    }
     const url = getCldImageUrl({
       src: originalImagePath, 
-      // namedTransformations: 'person-spookified',
-      replaceBackground: "halloween party",
-      replace: {
-        from: 'shirt',
-        to: 'Shirt with spiders on it'
-      },
-      simulateColorblind: 'tritanomaly',
+      namedTransformations: transformToApply,
     })
     try {
       const res = await waitLoadingImage(url)
       if(res.status !== 200) throw new Error(res.statusText)
+      setUsedTransformations([...usedTransformations, transformationIndex])
       let currIndex = generatedImages.length
       if(!generatedImages.some(imUrl => url === imUrl)) {
         setGeneratedImages([...generatedImages, url])
@@ -91,7 +93,7 @@ export default function Photo({ params }: { params: { uid: string, public_id: st
         src={selectedImage.url}
         width={800}
         height={400}
-        className='mt-5 rounded-lg'
+        className='mt-5 rounded-lg m-auto'
         preserveTransformations
         />}
       {error && 
@@ -124,4 +126,13 @@ export default function Photo({ params }: { params: { uid: string, public_id: st
 
   function handleDownloadClick(selectedImage: string) {
     downloadAsset(selectedImage)
+  }
+
+  function getNamedTransformation(usedTransformations: number[]): [string, number] {
+    if(usedTransformations.length === availableTransformations.length) return ["", -1]
+    let index = Math.floor(Math.random() * availableTransformations.length)
+    while(usedTransformations.includes(index)) {
+      index = Math.floor(Math.random() * availableTransformations.length)
+    }
+  return [availableTransformations[index], index]
   }
