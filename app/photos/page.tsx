@@ -31,7 +31,7 @@ export default function Photos() {
         }
       }
 
-    if(!isLoading && imagesUrls.length === 0) return <EmptyPage />
+    if(!isLoading && imagesUrls.length === 0) return <EmptyPage handleWidgetUpload={handleWidgetUpload}/>
     if(isLoading) return skeletonGrid()
     return (
         <div className="p-12 h-screen">
@@ -54,10 +54,11 @@ export default function Photos() {
     )
 }
 
-function EmptyPage() {
+function EmptyPage({handleWidgetUpload}: {handleWidgetUpload: any}) {
     return (
     <div className="h-screen w-full text-2xl text-center pt-11 font-[family-name:var(--font-creepster)]">
             <Spider scale={0.3} left={60}/>
+            <div className="mb-5"><UploadButton onSuccess={handleWidgetUpload}/></div>
 
         <div className="text-slate-300">🎃 Beware! This album is as empty as a grave on Halloween night. 👻</div>
     </div>
