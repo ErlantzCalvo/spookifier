@@ -59,7 +59,7 @@ export default function UploadButton(props: UploadButtonProps) {
     >
         {({ open }) => {
             return (
-                <button onClick={() => open()} className="bg-orange-600 hover:bg-orange-800 text-white font-bold py-2 px-4 rounded-full">
+                <button onClick={() => open()} className="bg-orange-600 hover:bg-orange-800 text-white font-bold py-2 px-4 rounded-lg">
                     Upload your photo...
                 </button>
             );
