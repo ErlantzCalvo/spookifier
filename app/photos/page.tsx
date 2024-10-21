@@ -45,7 +45,8 @@ export default function Photos() {
                             alt="image"
                             width={400}
                             height={200}
-                            className="cursor-pointer rounded-lg h-auto transition duration-300 hover:scale-125 shadow hover:shadow-xl hover:shadow-orange-400"
+                            className="cursor-pointer rounded-lg h-auto transition duration-300
+                             hover:scale-125 shadow hover:shadow-xl hover:shadow-orange-400 max-h-[calc(100vh/4)] max-w-[calc(100vw/4)] object-contain"
                         />
                     </Link>
                 ))}
