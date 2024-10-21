@@ -3,6 +3,7 @@ import Link from "next/link";
 import Modal from "./modal";
 import { useState } from "react";
 import { getUserCode } from "@/lib/utils";
+import Image from "next/image";
 
 interface ShareModalProps {openShareModal: boolean, setOpenShareModal: (arg: boolean)=> void}
 
@@ -21,11 +22,13 @@ export default function Header() {
                         className="text-lg font-medium text-orange-500 hover:text-orange-300 font-[family-name:var(--font-creepster)]"
                     >
                         Your photos
-                    </Link>
+                        <Image src="/photos.svg" height={15} width={15} alt="share" className="inline ml-2 text-orange-600"/>
+                        </Link>
                     <button className="text-lg font-medium text-orange-500 hover:text-orange-300 font-[family-name:var(--font-creepster)]"
                         onClick={() => setOpenShareModal(true)}
                     >
                         share
+                        <Image src="/share.svg" height={15} width={15} alt="share" className="inline ml-2 text-orange-600"/>
                     </button>
 
                 </div>
