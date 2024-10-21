@@ -96,7 +96,7 @@ export default function Photo({ params }: { params: { uid: string, public_id: st
         src={selectedImage.url}
         width={1920}
         height={1080}
-        className='mt-5 rounded-lg m-auto w-full h-auto'
+        className='mt-5 rounded-lg m-auto max-w-full max-h-full object-contain'
         preserveTransformations={selectedImage.url !== originalImagePath}
         />}
       {error && 
