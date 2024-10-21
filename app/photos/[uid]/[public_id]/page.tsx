@@ -6,6 +6,7 @@ import {CldImage, getCldImageUrl } from 'next-cloudinary'
 import Image from 'next/image';
 import { useState } from 'react';
 import availableTransformations from "@/app/assets/availableTransformations.json"
+import Spider from '@/components/spider';
 
 interface ButtonsPaneProps {
   isLoading: boolean, 
@@ -46,7 +47,9 @@ export default function Photo({ params }: { params: { uid: string, public_id: st
     } catch (error) {
         setError(error)
     } finally {
-      setLoadingImage(false)
+      setTimeout(() => {
+        setLoadingImage(false)
+      }, 1000)
     }
   }
 
@@ -58,10 +61,10 @@ export default function Photo({ params }: { params: { uid: string, public_id: st
     setSelectedImage({url: generatedImages[index], index})
   }
 
-  
-
     return (
-    <div className='h-screen flex text-center p-2 md:p-12'>
+    <div className='h-screen flex text-center p-2 md:p-12 justify-center'>
+      <Spider scale={0.2} left={50} hangHeight={800}/>
+      <Spider scale={0.2} left={80} hangHeight={600}/>
       <div id='lateralPanel' className='text-white mr-5 md:mr-20 overflow-y-auto pb-5'>
         {
           generatedImages.map((imageUrl, idx) => (
@@ -84,17 +87,17 @@ export default function Photo({ params }: { params: { uid: string, public_id: st
         }
         {isLoadingImage && <ImageLoadSkeleton width={200} height={100}/>}
       </div>
-      <div className='flex flex-col w-full'>
+      <div className='flex flex-col w-full' style={{maxWidth: '800px'}}>
         
      <ButtonsPane isLoading={isLoadingImage} onSpookify={spookifyImage} onDownloadClick={() => handleDownloadClick(selectedImage.url)}/>
       {isLoadingImage && <SpookyLoader />}
       {!isLoadingImage && <CldImage 
         alt='original image'
         src={selectedImage.url}
-        width={800}
-        height={400}
-        className='mt-5 rounded-lg m-auto'
-        preserveTransformations
+        width={1920}
+        height={1080}
+        className='mt-5 rounded-lg m-auto w-full h-auto'
+        preserveTransformations={selectedImage.url !== originalImagePath}
         />}
       {error && 
       <div>

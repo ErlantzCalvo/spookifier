@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import {useRouter} from 'next/navigation'
 import ImageLoadSkeleton from "@/components/image-load-skeleton";
 import Testimonials from "@/components/testimonials";
+import Spider from "@/components/spider";
 
 
 export default function Home() {
@@ -26,6 +27,8 @@ export default function Home() {
   }
   return (
       <main>
+        <Spider scale={0.2} left={30} hangHeight={800}/>
+        <Spider scale={0.2} left={60}/>
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="lg:grid lg:grid-cols-12 lg:gap-8">
