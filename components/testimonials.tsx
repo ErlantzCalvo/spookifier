@@ -8,9 +8,6 @@ export default function Testimonials() {
     <p className="text-blk title font-[family-name:var(--font-creepster)]">
       Testimonials
     </p>
-    <p className="text-blk desc">
-    What do people who have tried Spookifier say about their experience with the site?
-    </p>
     <div className="responsive-container-block blocks">
       <div className="responsive-cell-block wk-desk-1 wk-tab-1 wk-mobile-1 wk-ipadp-1 content">
         <p className="text-blk info-block ">

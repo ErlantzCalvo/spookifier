@@ -63,23 +63,11 @@
     margin-right: 0px;
     margin-bottom: 0px;
     margin-left: 0px;
-    margin: 0 0 15px 0;
+    margin: 0 0 35px 0;
   }
   
   * {
     font-family: Nunito, sans-serif;
-  }
-  
-  .text-blk.desc {
-    text-align: center;
-    font-size: 18px;
-    line-height: 28px;
-    height: auto;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 50px;
-    margin-left: 0px;
-    max-width: 750px;
   }
   
   .responsive-container-block.blocks {
@@ -190,10 +178,6 @@
       margin-left: 25%;
     }
   
-    .text-blk.desc {
-      width: 70%;
-    }
-  
     .responsive-container-block.person {
       margin-top: 5%;
       margin-right: 31.25px;
@@ -244,15 +228,6 @@
       margin-left: 0px;
     }
   
-    .text-blk.desc {
-      margin-top: 0px;
-      margin-right: 0px;
-      margin-bottom: 80px;
-      margin-left: 0px;
-      width: 85%;
-      font-size: 17px;
-    }
-  
     .text-blk.title {
       margin-top: 0px;
       margin-right: 0px;
@@ -294,13 +269,6 @@
       margin-left: 0px;
     }
   
-    .text-blk.desc {
-      margin-top: 0px;
-      margin-right: 0px;
-      margin-bottom: 30px;
-      margin-left: 0px;
-    }
-  
     .text-blk.desig {
       font-size: 15px;
     }
@@ -319,16 +287,6 @@
       margin-left: 0px;
     }
   
-    .text-blk.desc {
-      width: 90%;
-      margin-top: 0px;
-      margin-right: 0px;
-      margin-bottom: 0px;
-      margin-left: 0px;
-      font-size: 16px;
-      line-height: 24px;
-    }
-  
     .text-blk.title {
       margin-top: 0px;
       margin-right: 0px;
@@ -345,13 +303,6 @@
       font-size: 16px;
       line-height: 26px;
       margin: 30px 0 20px 0;
-    }
-  
-    .text-blk.desc {
-      margin-top: 0px;
-      margin-right: 0px;
-      margin-bottom: 30px;
-      margin-left: 0px;
     }
   
     .responsive-container-block.big-container {
