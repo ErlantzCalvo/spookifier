@@ -71,9 +71,9 @@ function TwoUpWrapper() {
     <div className="my-two-up">
       <two-up>
         <Image src="https://res.cloudinary.com/ds4qpjtfq/image/upload/v1728920459/template_primary_sa3nyv.avif" 
-        alt="normal person" width={800} height={400}></Image>
+        alt="normal person" width={800} height={400} priority></Image>
         <Image src="https://res.cloudinary.com/ds4qpjtfq/image/upload/v1728920459/template_primary_1_ux2vur.avif" 
-        alt="normal person" width={800} height={400}></Image>
+        alt="normal person" width={800} height={400} priority></Image>
       </two-up>
     </div>
   )

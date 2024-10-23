@@ -22,13 +22,13 @@ export default function Header() {
                         className="text-lg font-medium text-orange-500 hover:text-orange-300 font-[family-name:var(--font-creepster)]"
                     >
                         Your photos
-                        <Image src="/photos.svg" height={15} width={15} alt="share" className="inline ml-2 text-orange-600"/>
+                        <Image src="/photos.svg" height={15} width={15} alt="Open your uploaded photos" className="inline ml-2 text-orange-600"/>
                         </Link>
                     <button className="text-lg font-medium text-orange-500 hover:text-orange-300 font-[family-name:var(--font-creepster)]"
                         onClick={() => setOpenShareModal(true)}
                     >
                         share
-                        <Image src="/share.svg" height={15} width={15} alt="share" className="inline ml-2 text-orange-600"/>
+                        <Image src="/share.svg" height={15} width={15} alt="share button" className="inline ml-2 text-orange-600"/>
                     </button>
 
                 </div>
