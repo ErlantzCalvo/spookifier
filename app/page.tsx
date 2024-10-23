@@ -58,7 +58,7 @@ export default function Home() {
           </div>
         </section>
   
-        <section className="bg-white w-full">
+        <section className="bg-white w-full testimonials-section">
           <Testimonials />
         </section>
       </main>
