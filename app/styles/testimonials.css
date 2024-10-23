@@ -1,5 +1,10 @@
+.testimonials-section {
+  background-image: url("/spider-bg.webp");
+}
+
 .responsive-cell-block {
     min-height: 75px;
+    background-color: white;
   }
   
   .text-blk {

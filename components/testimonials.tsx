@@ -14,7 +14,7 @@ export default function Testimonials() {
     <div className="responsive-container-block blocks">
       <div className="responsive-cell-block wk-desk-1 wk-tab-1 wk-mobile-1 wk-ipadp-1 content">
         <p className="text-blk info-block ">
-            It is the most fun product I have ever used. Not having bought it when I had the chance is the thing I regret the most in this life</p>
+            It is the most fun product I have ever used. Not having bought it when I had the chance is the thing I regret the most in this life.</p>
         <div className="responsive-container-block person">
           <div className="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12 icon-block">
             <Image className="profile-img" width={50} height={50} alt="" src="/testimonials/Moondar-pimatcha.jpg" />
@@ -44,7 +44,7 @@ export default function Testimonials() {
               Zack Muckerberg
             </p>
             <p className="text-blk desig">
-              CEO and co-founder of Anfeta
+              CEO of Anfeta
             </p>
           </div>
         </div>
